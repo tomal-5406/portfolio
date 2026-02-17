@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MD TOMAL AHMED SAJIB — Portfolio</title>
+  <meta name="description" content="Portfolio of Md Tomal Ahmed Sajib — CSE graduate, researcher, and instructor." />
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ["ui-sans-serif", "system-ui", "Segoe UI", "Inter", "Arial"] },
+          boxShadow: { soft: "0 10px 30px rgba(0,0,0,.25)" }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    .glass { backdrop-filter: blur(10px); background: rgba(255,255,255,.06); }
+    .ring-soft { box-shadow: 0 0 0 1px rgba(255,255,255,.10) inset; }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-slate-100 font-sans selection:bg-indigo-500/40 selection:text-white">
+  <!-- subtle background blobs -->
+  <div aria-hidden="true" class="fixed inset-0 overflow-hidden pointer-events-none">
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-indigo-600/25 blur-3xl rounded-full"></div>
+    <div class="absolute top-40 -right-24 w-[32rem] h-[32rem] bg-fuchsia-600/15 blur-3xl rounded-full"></div>
+    <div class="absolute -bottom-24 left-1/3 w-[28rem] h-[28rem] bg-cyan-500/10 blur-3xl rounded-full"></div>
+  </div>
+
+  <!-- Mobile topbar -->
+  <header class="md:hidden fixed top-0 inset-x-0 z-40">
+    <div class="glass ring-soft">
+      <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+        <button id="menuBtn" class="p-2 rounded-xl hover:bg-white/10 ring-soft" aria-label="Open menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <div class="font-semibold">Md Tomal Ahmed Sajib</div>
+        <a href="cv.pdf" class="px-3 py-2 text-sm rounded-xl bg-indigo-500/80 hover:bg-indigo-500 shadow-soft">CV</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile drawer -->
+  <div id="backdrop" class="md:hidden fixed inset-0 z-50 hidden">
+    <div class="absolute inset-0 bg-black/60"></div>
+    <aside id="drawer" class="absolute left-0 top-0 h-full w-[84%] max-w-xs bg-slate-950 glass ring-soft p-5 -translate-x-full transition-transform duration-200">
+      <div class="flex items-center justify-between">
+        <div class="font-semibold">Menu</div>
+        <button id="closeBtn" class="p-2 rounded-xl hover:bg-white/10 ring-soft" aria-label="Close menu">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="mt-5 flex items-center gap-3">
+        <img src="image.png" alt="Profile photo" class="w-12 h-12 rounded-2xl object-cover ring-soft" />
+        <div>
+          <div class="font-semibold leading-tight">MD TOMAL AHMED SAJIB</div>
+          <div class="text-xs text-slate-300">CSE Graduate • Researcher</div>
+        </div>
+      </div>
+
+      <nav class="mt-6 space-y-2">
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#home">Home</a>
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#about">About</a>
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#experience">Experience</a>
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#publications">Publications</a>
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#projects">Projects</a>
+        <a class="navlink block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#contact">Contact</a>
+      </nav>
+
+      <div class="mt-6 grid grid-cols-2 gap-3">
+        <a href="cv.pdf" class="px-4 py-3 rounded-2xl bg-indigo-500/80 hover:bg-indigo-500 text-center shadow-soft">Download CV</a>
+        <a href="mailto:sajib15-5406@diu.edu.bd" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-center ring-soft">Email</a>
+      </div>
+
+      <div class="mt-4 text-xs text-slate-400">
+        Tip: replace <span class="text-slate-200">image.png</span> and <span class="text-slate-200">cv.pdf</span> with your own files anytime.
+      </div>
+    </aside>
+  </div>
+
+  <main class="relative">
+    <div class="max-w-6xl mx-auto px-4 md:px-6 pt-20 md:pt-10 pb-12">
+      <div class="grid md:grid-cols-[18rem_1fr] gap-6">
+        <!-- Desktop sidebar -->
+        <aside class="hidden md:block sticky top-6 self-start">
+          <div class="glass ring-soft rounded-3xl p-6 shadow-soft">
+            <div class="flex items-center gap-4">
+              <img src="image.png" alt="Profile photo" class="w-16 h-16 rounded-3xl object-cover ring-soft" />
+              <div>
+                <div class="text-lg font-semibold leading-tight">MD TOMAL AHMED SAJIB</div>
+                <div class="text-sm text-slate-300">CSE Graduate • Researcher</div>
+              </div>
+            </div>
+
+            <div class="mt-4 text-sm text-slate-200/90 leading-relaxed">
+              BSc in CSE (Daffodil International University, CGPA 3.75/4.00; Jan 2026). Focused on AI, deep learning, computer vision and interpretable ML.
+            </div>
+
+            <div class="mt-5 grid grid-cols-2 gap-3">
+              <a href="cv.pdf" class="px-4 py-3 rounded-2xl bg-indigo-500/80 hover:bg-indigo-500 text-center shadow-soft">CV</a>
+              <a href="mailto:sajib15-5406@diu.edu.bd" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 text-center ring-soft">Email</a>
+            </div>
+
+            <nav class="mt-6 space-y-2 text-sm">
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#home">Home</a>
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#about">About</a>
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#experience">Experience</a>
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#publications">Publications</a>
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#projects">Projects</a>
+              <a class="block px-4 py-3 rounded-2xl hover:bg-white/10 ring-soft" href="#contact">Contact</a>
+            </nav>
+
+            <div class="mt-6 flex flex-wrap gap-2 text-xs text-slate-300">
+              <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft" href="https://scholar.google.com/citations?user=TRul1CgAAAAJ&hl=en" target="_blank" rel="noreferrer">Google Scholar</a>
+              <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft" href="https://www.researchgate.net/profile/Tomal-Sajib" target="_blank" rel="noreferrer">ResearchGate</a>
+              <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft" href="https://linkedin.com/in/tomal-ahmed-sajib-240383247/" target="_blank" rel="noreferrer">LinkedIn</a>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Content -->
+        <section class="space-y-6">
+          <!-- Hero -->
+          <div id="home" class="glass ring-soft rounded-3xl p-7 md:p-10 shadow-soft">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+              <div>
+                <div class="inline-flex items-center gap-2 text-xs text-slate-300 bg-white/10 ring-soft px-3 py-2 rounded-full">
+                  <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                  Available for Lecturer / RA roles
+                </div>
+                <h1 class="mt-4 text-3xl md:text-4xl font-semibold leading-tight">
+                  MD TOMAL AHMED SAJIB
+                </h1>
+                <p class="mt-3 text-slate-200/90 leading-relaxed max-w-2xl">
+                  I’m a CSE graduate (Daffodil International University, CGPA 3.75/4.00; Jan 2026) with research experience in deep learning,
+                  computer vision and medical imaging—focused on reproducible experiments and interpretable models.
+                </p>
+
+                <div class="mt-6 flex flex-wrap gap-3">
+                  <a href="#about" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">About</a>
+                  <a href="#experience" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">Experience</a>
+                  <a href="#publications" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">Publications</a>
+                  <a href="#contact" class="px-4 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">Contact</a>
+                  <a href="cv.pdf" class="px-5 py-3 rounded-2xl bg-indigo-500/80 hover:bg-indigo-500 shadow-soft font-medium">Download CV</a>
+                </div>
+              </div>
+
+              <div class="md:w-72">
+                <div class="rounded-3xl overflow-hidden ring-soft bg-white/5">
+                  <img src="image.png" alt="Portrait" class="w-full h-64 md:h-72 object-cover" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- About -->
+          <div id="about" class="glass ring-soft rounded-3xl p-7 shadow-soft">
+            <h2 class="text-xl font-semibold">About</h2>
+            <div class="mt-3 text-slate-200/90 leading-relaxed space-y-3">
+              <p>
+                I’m based in Dhaka, Bangladesh. I enjoy building end-to-end ML pipelines—from data preparation and
+                model training to evaluation and deployment-ready packaging—while keeping models efficient and understandable.
+              </p>
+              <div class="grid md:grid-cols-2 gap-4">
+                <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                  <div class="text-sm font-semibold">Interests</div>
+                  <ul class="mt-2 text-sm text-slate-200/90 list-disc list-inside space-y-1">
+                    <li>Deep learning & computer vision</li>
+                    <li>Medical imaging</li>
+                    <li>Lightweight & interpretable models</li>
+                    <li>Reproducible experimentation</li>
+                  </ul>
+                </div>
+                <div class="rounded-2xl bg-white/5 ring-soft p-4">
+                  <div class="text-sm font-semibold">Core stack</div>
+                  <ul class="mt-2 text-sm text-slate-200/90 list-disc list-inside space-y-1">
+                    <li>Python, PyTorch / TensorFlow</li>
+                    <li>OpenCV, NumPy, scikit-learn</li>
+                    <li>Scientific writing</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Experience -->
+          <div id="experience" class="glass ring-soft rounded-3xl p-7 shadow-soft">
+            <h2 class="text-xl font-semibold">Experience</h2>
+            <div class="mt-5 space-y-4">
+              <div class="rounded-2xl bg-white/5 ring-soft p-5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="font-semibold">Instructor & Research Consultant — AI Club & MARS Lab (DIU)</div>
+                  <div class="text-xs text-slate-300">2024 – Present</div>
+                </div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Mentoring ML projects, supporting experimentation and guiding students in implementing deep learning models and evaluations.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="font-semibold">Research Contributor — Health Informatics Research Lab</div>
+                  <div class="text-xs text-slate-300">2024 – Present</div>
+                </div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Contributing to medical AI work streams, including segmentation and classification pipelines.
+                </p>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-5">
+                <div class="flex flex-wrap items-center justify-between gap-2">
+                  <div class="font-semibold">Remote Research Assistant — SkillChief</div>
+                  <div class="text-xs text-slate-300">Jan 2026 – Present</div>
+                </div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Supporting experiments, building DL frameworks and reporting for applied ML tasks.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Publications -->
+          <div id="publications" class="glass ring-soft rounded-3xl p-7 shadow-soft">
+            <div class="flex items-end justify-between gap-4 flex-wrap">
+              <div>
+                <h2 class="text-xl font-semibold">Publications</h2>
+                
+              </div>
+              <a class="text-sm px-4 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                 href="https://scholar.google.com/citations?user=TRul1CgAAAAJ&hl=en" target="_blank" rel="noreferrer">
+                View on Google Scholar
+              </a>
+            </div>
+
+            <div class="mt-6 space-y-10">
+              <!-- Research Articles -->
+              <div>
+                <h3 class="text-center text-sm font-semibold tracking-wide text-slate-200">Research Articles</h3>
+                <div class="mt-4 space-y-4">
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Global Energy Interconnection (Elsevier • Q1 • CiteScore 6.0) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      TLCNN: Tabular data-based lightweight convolutional neural network for electricity energy demand prediction
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <a class="px-3 py-2 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 ring-soft"
+                         href="https://doi.org/10.1016/j.gloei.2025.07.005" target="_blank" rel="noreferrer">DOI</a>
+                      <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                         href="https://www.sciencedirect.com/science/article/pii/S2096511725001239" target="_blank" rel="noreferrer">Access article</a>
+                    </div>
+                  </article>
+
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      MethodsX (Elsevier • Q2 • CiteScore 3.4) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      A comparative deep learning methodology for plant insect image classification: Assessment of CNN architectures and augmentation techniques
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <a class="px-3 py-2 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 ring-soft"
+                         href="https://doi.org/10.1016/j.mex.2025.103680" target="_blank" rel="noreferrer">DOI</a>
+                      <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                         href="https://www.sciencedirect.com/science/article/pii/S2215016125005242" target="_blank" rel="noreferrer">Access article</a>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Review Articles -->
+              <div>
+                <h3 class="text-center text-sm font-semibold tracking-wide text-slate-200">Review Articles</h3>
+                <div class="mt-4 space-y-4">
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Engineering Reports (Wiley • Q2 • CiteScore 4.1) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      Systematic Literature Review of LLM-Large Language Model in Medical: Digital Health, Technology and Applications
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <a class="px-3 py-2 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 ring-soft"
+                         href="https://doi.org/10.1002/eng2.70365" target="_blank" rel="noreferrer">DOI</a>
+                      <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                         href="https://onlinelibrary.wiley.com/doi/full/10.1002/eng2.70365" target="_blank" rel="noreferrer">Access article</a>
+                    </div>
+                  </article>
+
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Engineering Reports (Wiley • Q2 • CiteScore 4.1) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      Secure Medical AI: Federated Learning and Large Language Models for Medical Intelligence
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <span class="px-3 py-2 rounded-xl bg-white/10 ring-soft">
+                        Submitted / Under review
+                      </span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Data Articles -->
+              <div>
+                <h3 class="text-center text-sm font-semibold tracking-wide text-slate-200">Data Articles</h3>
+                <div class="mt-4 space-y-4">
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Data in Brief (Elsevier • Q3 • CiteScore 2.6) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      DeepUS-ReconSeg: A multi-angle paired B-mode Ultrasound dataset for medical imaging reconstruction and segmentation
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                         href="https://www.sciencedirect.com/science/article/pii/S2352340925008054?ref=pdf_download&fr=RR-2&rr=991beb7ecb465942"
+                         target="_blank" rel="noreferrer">Access article</a>
+                    </div>
+                  </article>
+
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Data in Brief (Elsevier • Q3 • CiteScore 2.6) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      IQ-UltraRecon: Demodulated IQ ultrasound dataset of human hand and arm tissue for deep learning-based reconstruction
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <a class="px-3 py-2 rounded-xl bg-white/10 hover:bg-white/15 ring-soft"
+                         href="https://www.sciencedirect.com/science/article/pii/S2352340925007255"
+                         target="_blank" rel="noreferrer">Access article</a>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- Book Chapters -->
+              <div>
+                <h3 class="text-center text-sm font-semibold tracking-wide text-slate-200">Book Chapters</h3>
+                <div class="mt-4 space-y-4">
+                  <article class="rounded-2xl bg-white/5 ring-soft p-5">
+                    <div class="text-xs text-slate-300">
+                      Engineering Applications of AI for Demand Forecasting (Taylor &amp; Francis) • 2025
+                    </div>
+                    <h4 class="mt-2 font-semibold leading-snug text-sm md:text-base">
+                      Predicting Peak Energy Demand Using Machine Learning Techniques for Efficient Electricity Supply Management
+                    </h4>
+                    <div class="mt-3 flex flex-wrap gap-2 text-xs">
+                      <span class="px-3 py-2 rounded-xl bg-white/10 ring-soft">
+                        Accepted (In press) • Accepted on 24 April 2025
+                      </span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Projects -->
+          <div id="projects" class="glass ring-soft rounded-3xl p-7 shadow-soft">
+            <h2 class="text-xl font-semibold">Selected Projects</h2>
+            <div class="mt-5 grid md:grid-cols-2 gap-4">
+              <div class="rounded-2xl bg-white/5 ring-soft p-5">
+                <div class="font-semibold">Structure-guided glaucoma screening</div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Dual-stream classification combining fundus appearance with OD/OC structural cues; mixed-mask training to reduce train–test mismatch.
+                </p>
+                <div class="mt-3 text-xs text-slate-300">Keywords: segmentation, ROI extraction, fusion</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-5">
+                <div class="font-semibold">Anatomically constrained OD/OC segmentation</div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Two-stage segmentation where the optic cup is constrained inside the disc region; consistent disc-centered ROI generation.
+                </p>
+                <div class="mt-3 text-xs text-slate-300">Keywords: medical imaging, evaluation, dice</div>
+              </div>
+              <div class="rounded-2xl bg-white/5 ring-soft p-5 md:col-span-2">
+                <div class="font-semibold">Bangla voter record text parsing (automation)</div>
+                <p class="mt-2 text-sm text-slate-200/90">
+                  Regex-based parsing and batch processing scripts to clean and structure OCR-extracted voter text, producing consistent formatted outputs.
+                </p>
+                <div class="mt-3 text-xs text-slate-300">Keywords: OCR cleanup, regex, batch pipelines</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Contact -->
+          <div id="contact" class="glass ring-soft rounded-3xl p-7 shadow-soft">
+            <h2 class="text-xl font-semibold">Contact</h2>
+            <p class="mt-3 text-slate-200/90">
+              If you’d like to collaborate, discuss a research idea, or invite me for an interview:
+            </p>
+            <div class="mt-5 flex flex-wrap gap-3">
+              <a href="mailto:sajib15-5406@diu.edu.bd"
+                 class="px-5 py-3 rounded-2xl bg-indigo-500/80 hover:bg-indigo-500 shadow-soft font-medium">
+                sajib15-5406@diu.edu.bd
+              </a>
+              <a href="https://linkedin.com/in/tomal-ahmed-sajib-240383247/"
+                 target="_blank" rel="noreferrer"
+                 class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">
+                LinkedIn
+              </a>
+              <a href="https://www.researchgate.net/profile/Tomal-Sajib"
+                 target="_blank" rel="noreferrer"
+                 class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">
+                ResearchGate
+              </a>
+              <a href="https://scholar.google.com/citations?user=TRul1CgAAAAJ&hl=en"
+                 target="_blank" rel="noreferrer"
+                 class="px-5 py-3 rounded-2xl bg-white/10 hover:bg-white/15 ring-soft">
+                Google Scholar
+              </a>
+            </div>
+
+            <div class="mt-8 pt-5 border-t border-white/10 text-xs text-slate-400">
+              © <span id="year"></span> Md Tomal Ahmed Sajib.
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // mobile drawer behavior
+    const backdrop = document.getElementById("backdrop");
+    const drawer = document.getElementById("drawer");
+    const menuBtn = document.getElementById("menuBtn");
+    const closeBtn = document.getElementById("closeBtn");
+
+    function openDrawer() {
+      backdrop.classList.remove("hidden");
+      requestAnimationFrame(() => drawer.classList.remove("-translate-x-full"));
+      document.body.style.overflow = "hidden";
+    }
+    function closeDrawer() {
+      drawer.classList.add("-translate-x-full");
+      setTimeout(() => backdrop.classList.add("hidden"), 180);
+      document.body.style.overflow = "";
+    }
+
+    if (menuBtn) menuBtn.addEventListener("click", openDrawer);
+    if (closeBtn) closeBtn.addEventListener("click", closeDrawer);
+
+    backdrop?.addEventListener("click", (e) => {
+      if (e.target === backdrop || e.target === backdrop.firstElementChild) closeDrawer();
+    });
+
+    document.querySelectorAll(".navlink").forEach(a => {
+      a.addEventListener("click", () => closeDrawer());
+    });
+  </script>
+</body>
+</html>
